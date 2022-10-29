@@ -1,0 +1,1232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="healthtrackdbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="caloriesHistory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="calories" Type="int" Nullable="false" />
+          <Property Name="recordDate" Type="datetime" Nullable="false" />
+          <Property Name="userId" Type="int" Nullable="false" />
+          <Property Name="active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="caringEnvironmentHistory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="clinicName" Type="varchar(max)" Nullable="false" />
+          <Property Name="enviromentName" Type="varchar(max)" Nullable="false" />
+          <Property Name="userId" Type="int" Nullable="false" />
+          <Property Name="recordDate" Type="datetime" Nullable="false" />
+          <Property Name="active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="demeanorHistory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="demeanor" Type="varchar(max)" Nullable="false" />
+          <Property Name="frecuency" Type="varchar(max)" Nullable="false" />
+          <Property Name="intensity" Type="varchar(max)" Nullable="false" />
+          <Property Name="recordDate" Type="datetime" Nullable="false" />
+          <Property Name="userId" Type="int" Nullable="false" />
+          <Property Name="active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="diseaseCategoryHistory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userId" Type="int" Nullable="false" />
+          <Property Name="diseaseCategoryTypeId" Type="int" Nullable="false" />
+          <Property Name="recordDate" Type="datetime" Nullable="false" />
+          <Property Name="active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="diseaseCategoryType">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="description" Type="varchar(max)" Nullable="false" />
+          <Property Name="active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="distanceHistory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="distance" Type="int" Nullable="false" />
+          <Property Name="recordDate" Type="datetime" Nullable="false" />
+          <Property Name="userId" Type="int" Nullable="false" />
+          <Property Name="active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="heartbeatHistory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="averageBpm" Type="int" Nullable="false" />
+          <Property Name="userId" Type="int" Nullable="false" />
+          <Property Name="recordDate" Type="datetime" Nullable="false" />
+          <Property Name="active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="oximetry">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="saturation" Type="int" Nullable="false" />
+          <Property Name="userId" Type="int" Nullable="false" />
+          <Property Name="recordDate" Type="datetime" Nullable="false" />
+          <Property Name="active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="placesHistory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="lat" Type="varchar(max)" Nullable="false" />
+          <Property Name="lng" Type="varchar(max)" Nullable="false" />
+          <Property Name="recordDate" Type="datetime" Nullable="false" />
+          <Property Name="userId" Type="int" Nullable="false" />
+          <Property Name="active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="recommendationsHistory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="description" Type="varchar(max)" Nullable="false" />
+          <Property Name="userId" Type="int" Nullable="false" />
+          <Property Name="recordDate" Type="datetime" Nullable="false" />
+          <Property Name="active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sleepHistory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="averageBpm" Type="int" Nullable="false" />
+          <Property Name="startDateTime" Type="datetime" Nullable="false" />
+          <Property Name="endDateTime" Type="datetime" Nullable="false" />
+          <Property Name="recordDate" Type="datetime" Nullable="false" />
+          <Property Name="userId" Type="int" Nullable="false" />
+          <Property Name="active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="specialistByResponsable">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idUserSpecialist" Type="int" Nullable="false" />
+          <Property Name="idUserResponsable" Type="int" Nullable="false" />
+          <Property Name="active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="stepsHistory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="steps" Type="int" Nullable="false" />
+          <Property Name="recordDate" Type="datetime" Nullable="false" />
+          <Property Name="userId" Type="int" Nullable="false" />
+          <Property Name="active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="treatmentHistory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="description" Type="varchar(max)" Nullable="false" />
+          <Property Name="userId" Type="int" Nullable="false" />
+          <Property Name="recordDate" Type="datetime" Nullable="false" />
+          <Property Name="active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="email" Type="varchar(max)" Nullable="false" />
+          <Property Name="username" Type="varchar(max)" Nullable="false" />
+          <Property Name="password" Type="varchar(max)" Nullable="false" />
+          <Property Name="fullName" Type="varchar(max)" Nullable="false" />
+          <Property Name="dni" Type="varchar(max)" Nullable="false" />
+          <Property Name="birthday" Type="date" Nullable="false" />
+          <Property Name="userTypeId" Type="int" Nullable="false" />
+          <Property Name="active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="userType">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="description" Type="varchar(max)" Nullable="false" />
+          <Property Name="active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="weightHistory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="weight" Type="float" Nullable="false" />
+          <Property Name="recordDate" Type="datetime" Nullable="false" />
+          <Property Name="userId" Type="int" Nullable="false" />
+          <Property Name="active" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_caloriesHistory_user">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="caloriesHistory" Type="Self.caloriesHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="caloriesHistory">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_caringEnvironment_user">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="caringEnvironmentHistory" Type="Self.caringEnvironmentHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="caringEnvironmentHistory">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_demeanorHistory_user">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="demeanorHistory" Type="Self.demeanorHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="demeanorHistory">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_diseaseCategoryHistory_diseaseCategoryType">
+          <End Role="diseaseCategoryType" Type="Self.diseaseCategoryType" Multiplicity="1" />
+          <End Role="diseaseCategoryHistory" Type="Self.diseaseCategoryHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="diseaseCategoryType">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="diseaseCategoryHistory">
+              <PropertyRef Name="diseaseCategoryTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_diseaseCategoryHistory_user">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="diseaseCategoryHistory" Type="Self.diseaseCategoryHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="diseaseCategoryHistory">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_distanceHistory_user">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="distanceHistory" Type="Self.distanceHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="distanceHistory">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_heartbeatHistory_user">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="heartbeatHistory" Type="Self.heartbeatHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="heartbeatHistory">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_oximetry_user">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="oximetry" Type="Self.oximetry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="oximetry">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_placesHistory_user">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="placesHistory" Type="Self.placesHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="placesHistory">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_recommendationsHistory_user">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="recommendationsHistory" Type="Self.recommendationsHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="recommendationsHistory">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_sleepHistory_user">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="sleepHistory" Type="Self.sleepHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="sleepHistory">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_specialistByResponsable_user">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="specialistByResponsable" Type="Self.specialistByResponsable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="specialistByResponsable">
+              <PropertyRef Name="idUserSpecialist" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_specialistByResponsable_user1">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="specialistByResponsable" Type="Self.specialistByResponsable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="specialistByResponsable">
+              <PropertyRef Name="idUserResponsable" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_stepsHistory_user">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="stepsHistory" Type="Self.stepsHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="stepsHistory">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_treatmentHistory_user">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="treatmentHistory" Type="Self.treatmentHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="treatmentHistory">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_userType">
+          <End Role="userType" Type="Self.userType" Multiplicity="1" />
+          <End Role="user" Type="Self.user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="userType">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="user">
+              <PropertyRef Name="userTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_weightHistory_user">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="weightHistory" Type="Self.weightHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="weightHistory">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="healthtrackdbModelStoreContainer">
+          <EntitySet Name="caloriesHistory" EntityType="Self.caloriesHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="caringEnvironmentHistory" EntityType="Self.caringEnvironmentHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="demeanorHistory" EntityType="Self.demeanorHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="diseaseCategoryHistory" EntityType="Self.diseaseCategoryHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="diseaseCategoryType" EntityType="Self.diseaseCategoryType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="distanceHistory" EntityType="Self.distanceHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="heartbeatHistory" EntityType="Self.heartbeatHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="oximetry" EntityType="Self.oximetry" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="placesHistory" EntityType="Self.placesHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="recommendationsHistory" EntityType="Self.recommendationsHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sleepHistory" EntityType="Self.sleepHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="specialistByResponsable" EntityType="Self.specialistByResponsable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="stepsHistory" EntityType="Self.stepsHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="treatmentHistory" EntityType="Self.treatmentHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="userType" EntityType="Self.userType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="weightHistory" EntityType="Self.weightHistory" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_caloriesHistory_user" Association="Self.FK_caloriesHistory_user">
+            <End Role="user" EntitySet="user" />
+            <End Role="caloriesHistory" EntitySet="caloriesHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_caringEnvironment_user" Association="Self.FK_caringEnvironment_user">
+            <End Role="user" EntitySet="user" />
+            <End Role="caringEnvironmentHistory" EntitySet="caringEnvironmentHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_demeanorHistory_user" Association="Self.FK_demeanorHistory_user">
+            <End Role="user" EntitySet="user" />
+            <End Role="demeanorHistory" EntitySet="demeanorHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_diseaseCategoryHistory_diseaseCategoryType" Association="Self.FK_diseaseCategoryHistory_diseaseCategoryType">
+            <End Role="diseaseCategoryType" EntitySet="diseaseCategoryType" />
+            <End Role="diseaseCategoryHistory" EntitySet="diseaseCategoryHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_diseaseCategoryHistory_user" Association="Self.FK_diseaseCategoryHistory_user">
+            <End Role="user" EntitySet="user" />
+            <End Role="diseaseCategoryHistory" EntitySet="diseaseCategoryHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_distanceHistory_user" Association="Self.FK_distanceHistory_user">
+            <End Role="user" EntitySet="user" />
+            <End Role="distanceHistory" EntitySet="distanceHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_heartbeatHistory_user" Association="Self.FK_heartbeatHistory_user">
+            <End Role="user" EntitySet="user" />
+            <End Role="heartbeatHistory" EntitySet="heartbeatHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_oximetry_user" Association="Self.FK_oximetry_user">
+            <End Role="user" EntitySet="user" />
+            <End Role="oximetry" EntitySet="oximetry" />
+          </AssociationSet>
+          <AssociationSet Name="FK_placesHistory_user" Association="Self.FK_placesHistory_user">
+            <End Role="user" EntitySet="user" />
+            <End Role="placesHistory" EntitySet="placesHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_recommendationsHistory_user" Association="Self.FK_recommendationsHistory_user">
+            <End Role="user" EntitySet="user" />
+            <End Role="recommendationsHistory" EntitySet="recommendationsHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_sleepHistory_user" Association="Self.FK_sleepHistory_user">
+            <End Role="user" EntitySet="user" />
+            <End Role="sleepHistory" EntitySet="sleepHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_specialistByResponsable_user" Association="Self.FK_specialistByResponsable_user">
+            <End Role="user" EntitySet="user" />
+            <End Role="specialistByResponsable" EntitySet="specialistByResponsable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_specialistByResponsable_user1" Association="Self.FK_specialistByResponsable_user1">
+            <End Role="user" EntitySet="user" />
+            <End Role="specialistByResponsable" EntitySet="specialistByResponsable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_stepsHistory_user" Association="Self.FK_stepsHistory_user">
+            <End Role="user" EntitySet="user" />
+            <End Role="stepsHistory" EntitySet="stepsHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_treatmentHistory_user" Association="Self.FK_treatmentHistory_user">
+            <End Role="user" EntitySet="user" />
+            <End Role="treatmentHistory" EntitySet="treatmentHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_userType" Association="Self.FK_user_userType">
+            <End Role="userType" EntitySet="userType" />
+            <End Role="user" EntitySet="user" />
+          </AssociationSet>
+          <AssociationSet Name="FK_weightHistory_user" Association="Self.FK_weightHistory_user">
+            <End Role="user" EntitySet="user" />
+            <End Role="weightHistory" EntitySet="weightHistory" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="healthtrackdbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="healthtrackdbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="caloriesHistories" EntityType="healthtrackdbModel.caloriesHistory" />
+          <EntitySet Name="caringEnvironmentHistories" EntityType="healthtrackdbModel.caringEnvironmentHistory" />
+          <EntitySet Name="demeanorHistories" EntityType="healthtrackdbModel.demeanorHistory" />
+          <EntitySet Name="diseaseCategoryHistories" EntityType="healthtrackdbModel.diseaseCategoryHistory" />
+          <EntitySet Name="diseaseCategoryTypes" EntityType="healthtrackdbModel.diseaseCategoryType" />
+          <EntitySet Name="distanceHistories" EntityType="healthtrackdbModel.distanceHistory" />
+          <EntitySet Name="heartbeatHistories" EntityType="healthtrackdbModel.heartbeatHistory" />
+          <EntitySet Name="oximetries" EntityType="healthtrackdbModel.oximetry" />
+          <EntitySet Name="placesHistories" EntityType="healthtrackdbModel.placesHistory" />
+          <EntitySet Name="recommendationsHistories" EntityType="healthtrackdbModel.recommendationsHistory" />
+          <EntitySet Name="sleepHistories" EntityType="healthtrackdbModel.sleepHistory" />
+          <EntitySet Name="specialistByResponsables" EntityType="healthtrackdbModel.specialistByResponsable" />
+          <EntitySet Name="stepsHistories" EntityType="healthtrackdbModel.stepsHistory" />
+          <EntitySet Name="sysdiagrams" EntityType="healthtrackdbModel.sysdiagram" />
+          <EntitySet Name="treatmentHistories" EntityType="healthtrackdbModel.treatmentHistory" />
+          <EntitySet Name="users" EntityType="healthtrackdbModel.user" />
+          <EntitySet Name="userTypes" EntityType="healthtrackdbModel.userType" />
+          <EntitySet Name="weightHistories" EntityType="healthtrackdbModel.weightHistory" />
+          <AssociationSet Name="FK_caloriesHistory_user" Association="healthtrackdbModel.FK_caloriesHistory_user">
+            <End Role="user" EntitySet="users" />
+            <End Role="caloriesHistory" EntitySet="caloriesHistories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_caringEnvironment_user" Association="healthtrackdbModel.FK_caringEnvironment_user">
+            <End Role="user" EntitySet="users" />
+            <End Role="caringEnvironmentHistory" EntitySet="caringEnvironmentHistories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_demeanorHistory_user" Association="healthtrackdbModel.FK_demeanorHistory_user">
+            <End Role="user" EntitySet="users" />
+            <End Role="demeanorHistory" EntitySet="demeanorHistories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_diseaseCategoryHistory_diseaseCategoryType" Association="healthtrackdbModel.FK_diseaseCategoryHistory_diseaseCategoryType">
+            <End Role="diseaseCategoryType" EntitySet="diseaseCategoryTypes" />
+            <End Role="diseaseCategoryHistory" EntitySet="diseaseCategoryHistories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_diseaseCategoryHistory_user" Association="healthtrackdbModel.FK_diseaseCategoryHistory_user">
+            <End Role="user" EntitySet="users" />
+            <End Role="diseaseCategoryHistory" EntitySet="diseaseCategoryHistories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_distanceHistory_user" Association="healthtrackdbModel.FK_distanceHistory_user">
+            <End Role="user" EntitySet="users" />
+            <End Role="distanceHistory" EntitySet="distanceHistories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_heartbeatHistory_user" Association="healthtrackdbModel.FK_heartbeatHistory_user">
+            <End Role="user" EntitySet="users" />
+            <End Role="heartbeatHistory" EntitySet="heartbeatHistories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_oximetry_user" Association="healthtrackdbModel.FK_oximetry_user">
+            <End Role="user" EntitySet="users" />
+            <End Role="oximetry" EntitySet="oximetries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_placesHistory_user" Association="healthtrackdbModel.FK_placesHistory_user">
+            <End Role="user" EntitySet="users" />
+            <End Role="placesHistory" EntitySet="placesHistories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_recommendationsHistory_user" Association="healthtrackdbModel.FK_recommendationsHistory_user">
+            <End Role="user" EntitySet="users" />
+            <End Role="recommendationsHistory" EntitySet="recommendationsHistories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_sleepHistory_user" Association="healthtrackdbModel.FK_sleepHistory_user">
+            <End Role="user" EntitySet="users" />
+            <End Role="sleepHistory" EntitySet="sleepHistories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_specialistByResponsable_user" Association="healthtrackdbModel.FK_specialistByResponsable_user">
+            <End Role="user" EntitySet="users" />
+            <End Role="specialistByResponsable" EntitySet="specialistByResponsables" />
+          </AssociationSet>
+          <AssociationSet Name="FK_specialistByResponsable_user1" Association="healthtrackdbModel.FK_specialistByResponsable_user1">
+            <End Role="user" EntitySet="users" />
+            <End Role="specialistByResponsable" EntitySet="specialistByResponsables" />
+          </AssociationSet>
+          <AssociationSet Name="FK_stepsHistory_user" Association="healthtrackdbModel.FK_stepsHistory_user">
+            <End Role="user" EntitySet="users" />
+            <End Role="stepsHistory" EntitySet="stepsHistories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_treatmentHistory_user" Association="healthtrackdbModel.FK_treatmentHistory_user">
+            <End Role="user" EntitySet="users" />
+            <End Role="treatmentHistory" EntitySet="treatmentHistories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_userType" Association="healthtrackdbModel.FK_user_userType">
+            <End Role="userType" EntitySet="userTypes" />
+            <End Role="user" EntitySet="users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_weightHistory_user" Association="healthtrackdbModel.FK_weightHistory_user">
+            <End Role="user" EntitySet="users" />
+            <End Role="weightHistory" EntitySet="weightHistories" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="caloriesHistory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="calories" Type="Int32" Nullable="false" />
+          <Property Name="recordDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="userId" Type="Int32" Nullable="false" />
+          <Property Name="active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="user" Relationship="healthtrackdbModel.FK_caloriesHistory_user" FromRole="caloriesHistory" ToRole="user" />
+        </EntityType>
+        <EntityType Name="caringEnvironmentHistory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="clinicName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="enviromentName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="userId" Type="Int32" Nullable="false" />
+          <Property Name="recordDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="user" Relationship="healthtrackdbModel.FK_caringEnvironment_user" FromRole="caringEnvironmentHistory" ToRole="user" />
+        </EntityType>
+        <EntityType Name="demeanorHistory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="demeanor" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="frecuency" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="intensity" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="recordDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="userId" Type="Int32" Nullable="false" />
+          <Property Name="active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="user" Relationship="healthtrackdbModel.FK_demeanorHistory_user" FromRole="demeanorHistory" ToRole="user" />
+        </EntityType>
+        <EntityType Name="diseaseCategoryHistory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userId" Type="Int32" Nullable="false" />
+          <Property Name="diseaseCategoryTypeId" Type="Int32" Nullable="false" />
+          <Property Name="recordDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="diseaseCategoryType" Relationship="healthtrackdbModel.FK_diseaseCategoryHistory_diseaseCategoryType" FromRole="diseaseCategoryHistory" ToRole="diseaseCategoryType" />
+          <NavigationProperty Name="user" Relationship="healthtrackdbModel.FK_diseaseCategoryHistory_user" FromRole="diseaseCategoryHistory" ToRole="user" />
+        </EntityType>
+        <EntityType Name="diseaseCategoryType">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="diseaseCategoryHistories" Relationship="healthtrackdbModel.FK_diseaseCategoryHistory_diseaseCategoryType" FromRole="diseaseCategoryType" ToRole="diseaseCategoryHistory" />
+        </EntityType>
+        <EntityType Name="distanceHistory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="distance" Type="Int32" Nullable="false" />
+          <Property Name="recordDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="userId" Type="Int32" Nullable="false" />
+          <Property Name="active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="user" Relationship="healthtrackdbModel.FK_distanceHistory_user" FromRole="distanceHistory" ToRole="user" />
+        </EntityType>
+        <EntityType Name="heartbeatHistory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="averageBpm" Type="Int32" Nullable="false" />
+          <Property Name="userId" Type="Int32" Nullable="false" />
+          <Property Name="recordDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="user" Relationship="healthtrackdbModel.FK_heartbeatHistory_user" FromRole="heartbeatHistory" ToRole="user" />
+        </EntityType>
+        <EntityType Name="oximetry">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="saturation" Type="Int32" Nullable="false" />
+          <Property Name="userId" Type="Int32" Nullable="false" />
+          <Property Name="recordDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="user" Relationship="healthtrackdbModel.FK_oximetry_user" FromRole="oximetry" ToRole="user" />
+        </EntityType>
+        <EntityType Name="placesHistory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="lat" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="lng" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="recordDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="userId" Type="Int32" Nullable="false" />
+          <Property Name="active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="user" Relationship="healthtrackdbModel.FK_placesHistory_user" FromRole="placesHistory" ToRole="user" />
+        </EntityType>
+        <EntityType Name="recommendationsHistory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="userId" Type="Int32" Nullable="false" />
+          <Property Name="recordDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="user" Relationship="healthtrackdbModel.FK_recommendationsHistory_user" FromRole="recommendationsHistory" ToRole="user" />
+        </EntityType>
+        <EntityType Name="sleepHistory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="averageBpm" Type="Int32" Nullable="false" />
+          <Property Name="startDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="endDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="recordDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="userId" Type="Int32" Nullable="false" />
+          <Property Name="active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="user" Relationship="healthtrackdbModel.FK_sleepHistory_user" FromRole="sleepHistory" ToRole="user" />
+        </EntityType>
+        <EntityType Name="specialistByResponsable">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idUserSpecialist" Type="Int32" Nullable="false" />
+          <Property Name="idUserResponsable" Type="Int32" Nullable="false" />
+          <Property Name="active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="user" Relationship="healthtrackdbModel.FK_specialistByResponsable_user" FromRole="specialistByResponsable" ToRole="user" />
+          <NavigationProperty Name="user1" Relationship="healthtrackdbModel.FK_specialistByResponsable_user1" FromRole="specialistByResponsable" ToRole="user" />
+        </EntityType>
+        <EntityType Name="stepsHistory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="steps" Type="Int32" Nullable="false" />
+          <Property Name="recordDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="userId" Type="Int32" Nullable="false" />
+          <Property Name="active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="user" Relationship="healthtrackdbModel.FK_stepsHistory_user" FromRole="stepsHistory" ToRole="user" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="treatmentHistory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="userId" Type="Int32" Nullable="false" />
+          <Property Name="recordDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="user" Relationship="healthtrackdbModel.FK_treatmentHistory_user" FromRole="treatmentHistory" ToRole="user" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="username" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="fullName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="dni" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="birthday" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="userTypeId" Type="Int32" Nullable="false" />
+          <Property Name="active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="caloriesHistories" Relationship="healthtrackdbModel.FK_caloriesHistory_user" FromRole="user" ToRole="caloriesHistory" />
+          <NavigationProperty Name="caringEnvironmentHistories" Relationship="healthtrackdbModel.FK_caringEnvironment_user" FromRole="user" ToRole="caringEnvironmentHistory" />
+          <NavigationProperty Name="demeanorHistories" Relationship="healthtrackdbModel.FK_demeanorHistory_user" FromRole="user" ToRole="demeanorHistory" />
+          <NavigationProperty Name="diseaseCategoryHistories" Relationship="healthtrackdbModel.FK_diseaseCategoryHistory_user" FromRole="user" ToRole="diseaseCategoryHistory" />
+          <NavigationProperty Name="distanceHistories" Relationship="healthtrackdbModel.FK_distanceHistory_user" FromRole="user" ToRole="distanceHistory" />
+          <NavigationProperty Name="heartbeatHistories" Relationship="healthtrackdbModel.FK_heartbeatHistory_user" FromRole="user" ToRole="heartbeatHistory" />
+          <NavigationProperty Name="oximetries" Relationship="healthtrackdbModel.FK_oximetry_user" FromRole="user" ToRole="oximetry" />
+          <NavigationProperty Name="placesHistories" Relationship="healthtrackdbModel.FK_placesHistory_user" FromRole="user" ToRole="placesHistory" />
+          <NavigationProperty Name="recommendationsHistories" Relationship="healthtrackdbModel.FK_recommendationsHistory_user" FromRole="user" ToRole="recommendationsHistory" />
+          <NavigationProperty Name="sleepHistories" Relationship="healthtrackdbModel.FK_sleepHistory_user" FromRole="user" ToRole="sleepHistory" />
+          <NavigationProperty Name="specialistByResponsables" Relationship="healthtrackdbModel.FK_specialistByResponsable_user" FromRole="user" ToRole="specialistByResponsable" />
+          <NavigationProperty Name="specialistByResponsables1" Relationship="healthtrackdbModel.FK_specialistByResponsable_user1" FromRole="user" ToRole="specialistByResponsable" />
+          <NavigationProperty Name="stepsHistories" Relationship="healthtrackdbModel.FK_stepsHistory_user" FromRole="user" ToRole="stepsHistory" />
+          <NavigationProperty Name="treatmentHistories" Relationship="healthtrackdbModel.FK_treatmentHistory_user" FromRole="user" ToRole="treatmentHistory" />
+          <NavigationProperty Name="userType" Relationship="healthtrackdbModel.FK_user_userType" FromRole="user" ToRole="userType" />
+          <NavigationProperty Name="weightHistories" Relationship="healthtrackdbModel.FK_weightHistory_user" FromRole="user" ToRole="weightHistory" />
+        </EntityType>
+        <EntityType Name="userType">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="users" Relationship="healthtrackdbModel.FK_user_userType" FromRole="userType" ToRole="user" />
+        </EntityType>
+        <EntityType Name="weightHistory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="weight" Type="Double" Nullable="false" />
+          <Property Name="recordDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="userId" Type="Int32" Nullable="false" />
+          <Property Name="active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="user" Relationship="healthtrackdbModel.FK_weightHistory_user" FromRole="weightHistory" ToRole="user" />
+        </EntityType>
+        <Association Name="FK_caloriesHistory_user">
+          <End Type="healthtrackdbModel.user" Role="user" Multiplicity="1" />
+          <End Type="healthtrackdbModel.caloriesHistory" Role="caloriesHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="caloriesHistory">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_caringEnvironment_user">
+          <End Type="healthtrackdbModel.user" Role="user" Multiplicity="1" />
+          <End Type="healthtrackdbModel.caringEnvironmentHistory" Role="caringEnvironmentHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="caringEnvironmentHistory">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_demeanorHistory_user">
+          <End Type="healthtrackdbModel.user" Role="user" Multiplicity="1" />
+          <End Type="healthtrackdbModel.demeanorHistory" Role="demeanorHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="demeanorHistory">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_diseaseCategoryHistory_diseaseCategoryType">
+          <End Type="healthtrackdbModel.diseaseCategoryType" Role="diseaseCategoryType" Multiplicity="1" />
+          <End Type="healthtrackdbModel.diseaseCategoryHistory" Role="diseaseCategoryHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="diseaseCategoryType">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="diseaseCategoryHistory">
+              <PropertyRef Name="diseaseCategoryTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_diseaseCategoryHistory_user">
+          <End Type="healthtrackdbModel.user" Role="user" Multiplicity="1" />
+          <End Type="healthtrackdbModel.diseaseCategoryHistory" Role="diseaseCategoryHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="diseaseCategoryHistory">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_distanceHistory_user">
+          <End Type="healthtrackdbModel.user" Role="user" Multiplicity="1" />
+          <End Type="healthtrackdbModel.distanceHistory" Role="distanceHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="distanceHistory">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_heartbeatHistory_user">
+          <End Type="healthtrackdbModel.user" Role="user" Multiplicity="1" />
+          <End Type="healthtrackdbModel.heartbeatHistory" Role="heartbeatHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="heartbeatHistory">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_oximetry_user">
+          <End Type="healthtrackdbModel.user" Role="user" Multiplicity="1" />
+          <End Type="healthtrackdbModel.oximetry" Role="oximetry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="oximetry">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_placesHistory_user">
+          <End Type="healthtrackdbModel.user" Role="user" Multiplicity="1" />
+          <End Type="healthtrackdbModel.placesHistory" Role="placesHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="placesHistory">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_recommendationsHistory_user">
+          <End Type="healthtrackdbModel.user" Role="user" Multiplicity="1" />
+          <End Type="healthtrackdbModel.recommendationsHistory" Role="recommendationsHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="recommendationsHistory">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_sleepHistory_user">
+          <End Type="healthtrackdbModel.user" Role="user" Multiplicity="1" />
+          <End Type="healthtrackdbModel.sleepHistory" Role="sleepHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="sleepHistory">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_specialistByResponsable_user">
+          <End Type="healthtrackdbModel.user" Role="user" Multiplicity="1" />
+          <End Type="healthtrackdbModel.specialistByResponsable" Role="specialistByResponsable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="specialistByResponsable">
+              <PropertyRef Name="idUserSpecialist" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_specialistByResponsable_user1">
+          <End Type="healthtrackdbModel.user" Role="user" Multiplicity="1" />
+          <End Type="healthtrackdbModel.specialistByResponsable" Role="specialistByResponsable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="specialistByResponsable">
+              <PropertyRef Name="idUserResponsable" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_stepsHistory_user">
+          <End Type="healthtrackdbModel.user" Role="user" Multiplicity="1" />
+          <End Type="healthtrackdbModel.stepsHistory" Role="stepsHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="stepsHistory">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_treatmentHistory_user">
+          <End Type="healthtrackdbModel.user" Role="user" Multiplicity="1" />
+          <End Type="healthtrackdbModel.treatmentHistory" Role="treatmentHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="treatmentHistory">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_userType">
+          <End Type="healthtrackdbModel.userType" Role="userType" Multiplicity="1" />
+          <End Type="healthtrackdbModel.user" Role="user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="userType">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="user">
+              <PropertyRef Name="userTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_weightHistory_user">
+          <End Type="healthtrackdbModel.user" Role="user" Multiplicity="1" />
+          <End Type="healthtrackdbModel.weightHistory" Role="weightHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="weightHistory">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="healthtrackdbModelStoreContainer" CdmEntityContainer="healthtrackdbEntities">
+          <EntitySetMapping Name="caloriesHistories">
+            <EntityTypeMapping TypeName="healthtrackdbModel.caloriesHistory">
+              <MappingFragment StoreEntitySet="caloriesHistory">
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="recordDate" ColumnName="recordDate" />
+                <ScalarProperty Name="calories" ColumnName="calories" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="caringEnvironmentHistories">
+            <EntityTypeMapping TypeName="healthtrackdbModel.caringEnvironmentHistory">
+              <MappingFragment StoreEntitySet="caringEnvironmentHistory">
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="recordDate" ColumnName="recordDate" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="enviromentName" ColumnName="enviromentName" />
+                <ScalarProperty Name="clinicName" ColumnName="clinicName" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="demeanorHistories">
+            <EntityTypeMapping TypeName="healthtrackdbModel.demeanorHistory">
+              <MappingFragment StoreEntitySet="demeanorHistory">
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="recordDate" ColumnName="recordDate" />
+                <ScalarProperty Name="intensity" ColumnName="intensity" />
+                <ScalarProperty Name="frecuency" ColumnName="frecuency" />
+                <ScalarProperty Name="demeanor" ColumnName="demeanor" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="diseaseCategoryHistories">
+            <EntityTypeMapping TypeName="healthtrackdbModel.diseaseCategoryHistory">
+              <MappingFragment StoreEntitySet="diseaseCategoryHistory">
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="recordDate" ColumnName="recordDate" />
+                <ScalarProperty Name="diseaseCategoryTypeId" ColumnName="diseaseCategoryTypeId" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="diseaseCategoryTypes">
+            <EntityTypeMapping TypeName="healthtrackdbModel.diseaseCategoryType">
+              <MappingFragment StoreEntitySet="diseaseCategoryType">
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="distanceHistories">
+            <EntityTypeMapping TypeName="healthtrackdbModel.distanceHistory">
+              <MappingFragment StoreEntitySet="distanceHistory">
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="recordDate" ColumnName="recordDate" />
+                <ScalarProperty Name="distance" ColumnName="distance" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="heartbeatHistories">
+            <EntityTypeMapping TypeName="healthtrackdbModel.heartbeatHistory">
+              <MappingFragment StoreEntitySet="heartbeatHistory">
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="recordDate" ColumnName="recordDate" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="averageBpm" ColumnName="averageBpm" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="oximetries">
+            <EntityTypeMapping TypeName="healthtrackdbModel.oximetry">
+              <MappingFragment StoreEntitySet="oximetry">
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="recordDate" ColumnName="recordDate" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="saturation" ColumnName="saturation" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="placesHistories">
+            <EntityTypeMapping TypeName="healthtrackdbModel.placesHistory">
+              <MappingFragment StoreEntitySet="placesHistory">
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="recordDate" ColumnName="recordDate" />
+                <ScalarProperty Name="lng" ColumnName="lng" />
+                <ScalarProperty Name="lat" ColumnName="lat" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="recommendationsHistories">
+            <EntityTypeMapping TypeName="healthtrackdbModel.recommendationsHistory">
+              <MappingFragment StoreEntitySet="recommendationsHistory">
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="recordDate" ColumnName="recordDate" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sleepHistories">
+            <EntityTypeMapping TypeName="healthtrackdbModel.sleepHistory">
+              <MappingFragment StoreEntitySet="sleepHistory">
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="recordDate" ColumnName="recordDate" />
+                <ScalarProperty Name="endDateTime" ColumnName="endDateTime" />
+                <ScalarProperty Name="startDateTime" ColumnName="startDateTime" />
+                <ScalarProperty Name="averageBpm" ColumnName="averageBpm" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="specialistByResponsables">
+            <EntityTypeMapping TypeName="healthtrackdbModel.specialistByResponsable">
+              <MappingFragment StoreEntitySet="specialistByResponsable">
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="idUserResponsable" ColumnName="idUserResponsable" />
+                <ScalarProperty Name="idUserSpecialist" ColumnName="idUserSpecialist" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="stepsHistories">
+            <EntityTypeMapping TypeName="healthtrackdbModel.stepsHistory">
+              <MappingFragment StoreEntitySet="stepsHistory">
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="recordDate" ColumnName="recordDate" />
+                <ScalarProperty Name="steps" ColumnName="steps" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="healthtrackdbModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="treatmentHistories">
+            <EntityTypeMapping TypeName="healthtrackdbModel.treatmentHistory">
+              <MappingFragment StoreEntitySet="treatmentHistory">
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="recordDate" ColumnName="recordDate" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="healthtrackdbModel.user">
+              <MappingFragment StoreEntitySet="user">
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="userTypeId" ColumnName="userTypeId" />
+                <ScalarProperty Name="birthday" ColumnName="birthday" />
+                <ScalarProperty Name="dni" ColumnName="dni" />
+                <ScalarProperty Name="fullName" ColumnName="fullName" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="userTypes">
+            <EntityTypeMapping TypeName="healthtrackdbModel.userType">
+              <MappingFragment StoreEntitySet="userType">
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="weightHistories">
+            <EntityTypeMapping TypeName="healthtrackdbModel.weightHistory">
+              <MappingFragment StoreEntitySet="weightHistory">
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="recordDate" ColumnName="recordDate" />
+                <ScalarProperty Name="weight" ColumnName="weight" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
